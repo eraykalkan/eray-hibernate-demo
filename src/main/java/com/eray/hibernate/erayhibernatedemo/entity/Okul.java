@@ -1,10 +1,17 @@
 package com.eray.hibernate.erayhibernatedemo.entity;
 
+import org.hibernate.annotations.ResultCheckStyle;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name="okul")
+@SQLDelete(sql = "UPDATE okul SET "+BaseEntity.DURUM+" = 0 WHERE id = ?", check = ResultCheckStyle.COUNT)
+@Where(clause = BaseEntity.SILINDI_MI+"<>1")
 public class Okul extends BaseEntity{
 
     private String okulAdi;

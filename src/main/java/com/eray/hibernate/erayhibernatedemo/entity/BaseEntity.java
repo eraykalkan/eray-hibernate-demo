@@ -12,6 +12,9 @@ import java.time.Instant;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
+    public static final String DURUM="durum";
+    public static final String SILINDI_MI="silindi_mi";
+
     @Id
     @GeneratedValue
     private Long id;
